@@ -14,14 +14,14 @@ public class Game {
 
     private SurfaceHolder holder;
     private Resources resources;
-    private Sprite ball;
+    private Ball ball;
 
 
 public Game(int width, int height,SurfaceHolder holder, Resources resources){
     this.holder = holder;
     this.resources= resources;
 
-    ball = new Sprite(width,height );
+    ball = new Ball(width,height );
 
 }
     public void init() {
@@ -30,9 +30,12 @@ public Game(int width, int height,SurfaceHolder holder, Resources resources){
         Bitmap ballImage= BitmapFactory.decodeResource(resources, R.drawable.button);
         Bitmap ballShadow= BitmapFactory.decodeResource(resources, R.drawable.buttonshadow);
 
-        ball.init(ballImage,ballShadow);
+        ball.init(ballImage,ballShadow,-3,0);
     }
     public void update(long elapsed){
+        //TODO why here start the ball
+        //TODO first update to GIT
+ball.update(elapsed);
 
     }
     public void draw(){

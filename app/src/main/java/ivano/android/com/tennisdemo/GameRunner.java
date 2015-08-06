@@ -22,7 +22,7 @@ public class GameRunner extends Thread {
 
         while(running) {
 
-            Log.d("IVO", "Thread running");
+          //  Log.d("IVO", "Thread running");
 //            try {
 //                Thread.sleep(300);
 //            } catch (InterruptedException e) {
