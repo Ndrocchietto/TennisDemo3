@@ -11,7 +11,7 @@ public class GameRunner extends Thread {
 
 
     public GameRunner(Game game){
-         this.game=game;
+        this.game=game;
     }
     @Override
     public void run() {
@@ -22,13 +22,13 @@ public class GameRunner extends Thread {
 
         while(running) {
 
-          //  Log.d("IVO", "Thread running");
+            //  Log.d("IVO", "Thread running");
 //            try {
 //                Thread.sleep(300);
 //            } catch (InterruptedException e) {
 //                e.printStackTrace();
 //            }
-long now= System.currentTimeMillis();
+            long now= System.currentTimeMillis();
             long elapsed = now-lastTime;
 
             if(elapsed<100){

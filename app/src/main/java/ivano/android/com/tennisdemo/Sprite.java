@@ -1,8 +1,11 @@
-package ivano.android.com.tennisdemo;
 
+
+
+package ivano.android.com.tennisdemo;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Rect;
+
 
 /**
  * Created by ivano on 7/24/2015.
@@ -10,24 +13,23 @@ import android.graphics.Rect;
 public class  Sprite {
     private float x;
     private float y;
-    private Rect bounds;
+    private static Rect bounds;
 
 
-private int screenWidth,screenHeight;
-  private Bitmap image,shadow;
-private int shadowOffsetX,shadowOffsetY;
+    private int screenWidth,screenHeight;
+    private Bitmap image,shadow;
+    private int shadowOffsetX,shadowOffsetY;
 
 
     public Sprite(int screenWidth, int screenHeight) {
-        this.x=30;
-        this.y=30;
+
         this.screenWidth=screenWidth;
         this.screenHeight=screenHeight;
 
     }
 
     public void init(Bitmap image, Bitmap shadow,int shadowOffsetX, int shadowOffsetY){
-this.image =image;
+        this.image =image;
         this.shadow=shadow;
         this.shadowOffsetX=shadowOffsetX;
         this.shadowOffsetY=shadowOffsetY;
@@ -58,10 +60,10 @@ this.image =image;
         this.x = x;
     }
 
-public Rect getRect(){
+    public Rect getRect(){
 
-return bounds;
-}
+        return bounds;
+    }
     public Rect getScreenRect  (){
         return new Rect((int) x,(int) y,(int)x+getRect().width(),(int)y+getRect().height());
 

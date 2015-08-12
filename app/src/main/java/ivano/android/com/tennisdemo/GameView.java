@@ -1,3 +1,5 @@
+
+
 package ivano.android.com.tennisdemo;
 
 import android.content.Context;
@@ -14,7 +16,7 @@ import android.view.SurfaceView;
 public class GameView extends SurfaceView implements SurfaceHolder.Callback {
     private Bitmap button;
     private GameRunner runner;
-     private Game game;
+    private Game game;
 
     public GameView(Context context, AttributeSet attrs) {
 
@@ -22,13 +24,13 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
         super(context, attrs);
 
         SurfaceHolder holder =getHolder();
- holder.addCallback(this);
+        holder.addCallback(this);
     }
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
         //SurfaceHolder holder =getHolder();
-
+        game.onTouchEvent(event);
         return true;
     }
 
