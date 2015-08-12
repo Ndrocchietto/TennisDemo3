@@ -62,11 +62,18 @@ public class Ball extends Sprite {
     @Override
     public void init(Bitmap image, Bitmap shadow, int shadowOffsetX, int shadowOffsetY) {
         super.init(image, shadow, shadowOffsetX, shadowOffsetY);
-        setX(getScreenWidth() / 2 - getRect().centerX());
-        setY(getScreenWidth() / 2 - getRect().centerY());
+
+initPosition();
         Random random = new Random();
+
+
         directionX=random.nextInt(2)*2;
         directionY=random.nextInt(2)*2;
+    }
+    public void initPosition(){
+        //this move the ball to the center
+        setX(getScreenWidth() / 2 - getRect().centerX());
+        setY(getScreenWidth() / 2 - getRect().centerY());
     }
 
     public void moveRight() {

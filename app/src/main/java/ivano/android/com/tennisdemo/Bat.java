@@ -34,12 +34,12 @@ public class Bat extends Sprite {
         this.position = position;
     }
 
+
     @Override
     public void init(Bitmap image, Bitmap shadow, int shadowOffsetX, int shadowOffsetY) {
         super.init(image, shadow, shadowOffsetX, shadowOffsetY);
 
-        //to make the bat  s at the middle of the screen
-        setY(getScreenHeight() / 2 - getRect().centerY());
+initPosition();
         //this is the Y direction up or down that can be 1 or -1 of the bat
         //controlled by the PC
         dir = random.nextInt(2) * 2 - 1;
@@ -50,6 +50,10 @@ public class Bat extends Sprite {
         } else if (position == Position.RIGHT) {
             setX((getScreenWidth() - MARGIN) - getRect().centerX());
         }//the bats at middle of screen end
+    }
+    public void initPosition(){
+        //to make the bat  s at the middle of the screen
+        setY(getScreenHeight() / 2 - getRect().centerY());
     }
 
     public void update(long elapsed, Ball ball) {
