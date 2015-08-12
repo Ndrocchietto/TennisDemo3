@@ -17,6 +17,7 @@ public class Ball extends Sprite {
 
     public Ball(int screenWidth, int screenHeight) {
         super(screenWidth, screenHeight);
+        Log.d("IVO", "pirla");
     }
 
     public void update(long elapsed) {
