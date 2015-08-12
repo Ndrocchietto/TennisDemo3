@@ -7,6 +7,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 
@@ -46,21 +47,16 @@ public class Game {
         opponent.init(batImage, batShadow, -3, 0);
     }
     public void update(long elapsed){
+        if(player.getScreenRect().contains(ball.getScreenRect().left,ball.getScreenRect().centerY())){
+            ball.moveRight();
+        }else if(opponent.getScreenRect().contains(ball.getScreenRect().right, ball.getScreenRect().centerY())) {
+        ball.moveLeft();
+        }else if (ball.getScreenRect().left < player.getScreenRect().right) {
+            Log.d("IVO", "lost");
+        } else if (ball.getScreenRect().right > opponent.getScreenRect().left) {
+            Log.d("IVO", "won");
 
-// to see if the center pixel of the left edge of the ball is touched
-//        if(player.getScreenRect().contains(ball.getScreenRect().left,ball.getScreenRect().centerY())){
-//            ball.moveRight();
-//        } else if (opponent.getScreenRect().contains(ball.getScreenRect().right, ball.getScreenRect().centerY())) {
-//            ball.moveLeft();
-//        }
-//
-//        //we do not know what happens if the ball goes off of the center of the screen
-//        else if(ball.getScreenRect().left<player.getScreenRect().right) {
-//            Log.d("IVO", "lost");
-//        }
-//        else if(ball.getScreenRect().right>opponent.getScreenRect().left) {
-//            Log.d("IVO", "won");
-//        }
+        }
 
 //uncomment this that start the ball and make it run
         ball.update(elapsed);
