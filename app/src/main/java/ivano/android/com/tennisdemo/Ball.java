@@ -5,6 +5,7 @@ package ivano.android.com.tennisdemo;
 
 import android.graphics.Bitmap;
 import android.graphics.Rect;
+import android.util.Log;
 
 import java.util.Random;
 
@@ -48,8 +49,15 @@ public class Ball extends Sprite {
 
         x += directionX * speedX * elapsed;
         y += directionY * speedy * elapsed;
+        //TODO FIRST -bug ball uncomment
+        Log.d("IVO", "directionX:" + directionX);
+        Log.d("IVO", "directionY:" + directionY);
+//            Log.d("IVO", "X:" + x);
+//
+//            Log.d("IVO", "y:" +y);
+//
 
-        //Log.d("IVO", " x is:" + x);
+
         setX(x);
         setY(y);
 
@@ -63,13 +71,21 @@ public class Ball extends Sprite {
     public void init(Bitmap image, Bitmap shadow, int shadowOffsetX, int shadowOffsetY) {
         super.init(image, shadow, shadowOffsetX, shadowOffsetY);
 
-initPosition();
+        initPosition();
         Random random = new Random();
 
 
-        directionX=random.nextInt(2)*2;
-        directionY=random.nextInt(2)*2;
+        directionX = random.nextInt(2) * 2;
+        directionY = random.nextInt(2) * 2;
+
+
+        //TODO FIRST -bug ball uncomment
+
+            Log.d("IVO", "directionX:" + directionX);
+            Log.d("IVO", "directionY:" + directionY);
+
     }
+
     public void initPosition(){
         //this move the ball to the center
         setX(getScreenWidth() / 2 - getRect().centerX());

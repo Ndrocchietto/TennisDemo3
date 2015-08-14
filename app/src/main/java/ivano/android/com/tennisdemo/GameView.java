@@ -37,7 +37,7 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
     @Override
     public void surfaceCreated(SurfaceHolder holder) {
         Log.d("IVO", "Created!");
-        game = new Game(getWidth(),getHeight(),holder,getResources());
+        game = new Game(getContext(),getWidth(),getHeight(),holder,getResources());
 
         runner= new GameRunner(game);
         runner.start();
