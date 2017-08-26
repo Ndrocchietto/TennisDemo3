@@ -12,6 +12,7 @@ import android.graphics.Paint;
 import android.graphics.Typeface;
 import android.media.AudioManager;
 import android.media.SoundPool;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 
@@ -57,7 +58,7 @@ private enum State{
         textPaint.setTypeface(Typeface.DEFAULT_BOLD);
 
     }
-    public void init() {
+    public void gameInit() {
 
 
         Bitmap ballImage= BitmapFactory.decodeResource(resources, R.drawable.button);
@@ -104,6 +105,7 @@ private enum State{
     private void updateGame(long elapsed){
         //collision detection
         //left bat with ball
+        Log.d("IVO", "elapsed intermediate " + elapsed);
         if(player.getScreenRect().contains(ball.getScreenRect().left,ball.getScreenRect().centerY())){
             ball.moveRight();
             soundPool.play(sounds[Sounds.BOUNCE1], 1, 1, 1, 0, 1);
@@ -133,10 +135,9 @@ private enum State{
 
         }
 
-
 //uncomment this that start the ball and make it run
-        ball.update(elapsed);
-        //not player.update because the user will control the movement
+        ball.updateBallPosition(elapsed);
+        //not player.updateBallPosition because the user will control the movement
         //of the bat
         opponent.update(elapsed,ball );
     }

@@ -15,7 +15,7 @@ import android.view.SurfaceView;
  */
 public class GameView extends SurfaceView implements SurfaceHolder.Callback {
     private Bitmap button;
-    private GameRunner runner;
+    private GameRunner gameRunner;
     private Game game;
 
     public GameView(Context context, AttributeSet attrs) {
@@ -36,17 +36,18 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
 
     @Override
     public void surfaceCreated(SurfaceHolder holder) {
-        Log.d("IVO", "Created!");
+        Log.d("IVO", "SurfaceCreated!");
         game = new Game(getContext(),getWidth(),getHeight(),holder,getResources());
 
-        runner= new GameRunner(game);
-        runner.start();
+        gameRunner = new GameRunner(game);
+
+        gameRunner.start();
 
     }
 
     @Override
     public void surfaceChanged(SurfaceHolder holder, int format, int width, int height) {
-        Log.d("IVO", "Changed!");
+        Log.d("IVO", "SurfaceChanged!");
 
 
     }
@@ -54,14 +55,14 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
     @Override
     public void surfaceDestroyed(SurfaceHolder holder) {
         Log.d("IVO", "Destroyed!");
-        if(runner!= null) {
-            runner.shutdown();
-            while(runner!=null){
+        if(gameRunner != null) {
+            gameRunner.shutdown();
+            while(gameRunner !=null){
                 try {
-                    Log.d("IVO", "runner!=null");
+                    Log.d("IVO", "SurfaceDestroyed  while(gamerunner!=null)");
 
-                    runner.join();
-                    runner = null;
+                    gameRunner.join();
+                    gameRunner = null;
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }

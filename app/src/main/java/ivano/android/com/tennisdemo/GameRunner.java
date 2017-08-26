@@ -15,23 +15,25 @@ public class GameRunner extends Thread {
     }
     @Override
     public void run() {
-        game.init();
+        game.gameInit();
 
         super.run();
         long lastTime=System.currentTimeMillis();
 
         while(running) {
 
-            //  Log.d("IVO", "Thread running");
-//            try {
-//                Thread.sleep(300);
-//            } catch (InterruptedException e) {
-//                e.printStackTrace();
-//            }
+
+
             long now= System.currentTimeMillis();
             long elapsed = now-lastTime;
+            Log.d("IVO","run: lastTime "+lastTime);
 
-            if(elapsed<100){
+            Log.d("IVO","run: now "+now);
+
+
+            Log.d("IVO", "elapsed initial " + elapsed);
+         if(elapsed<100){
+
                 game.update(elapsed);
                 game.draw();
             }

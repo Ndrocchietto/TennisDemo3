@@ -27,7 +27,7 @@ public class Ball extends Sprite {
         super(screenWidth, screenHeight);
     }
 
-    public void update(long elapsed) {
+    public void updateBallPosition(long elapsed) {
 //to calculate the new position of the ball
 
         //cannot access to X and Y in Sprite.class because are private,
@@ -46,7 +46,7 @@ public class Ball extends Sprite {
             directionY = -1;
         }
 
-
+        Log.d("IVO", "elapsed passed: " + elapsed);
         x += directionX * speedX * elapsed;
         y += directionY * speedy * elapsed;
         //TODO FIRST -bug ball uncomment
@@ -68,9 +68,10 @@ public class Ball extends Sprite {
 
 
     @Override
-    public void init(Bitmap image, Bitmap shadow, int shadowOffsetX, int shadowOffsetY) {
+    public void
+    init(Bitmap image, Bitmap shadow, int shadowOffsetX, int shadowOffsetY) {
         super.init(image, shadow, shadowOffsetX, shadowOffsetY);
-
+        Log.d("IVO", "gameInit");
         initPosition();
         Random random = new Random();
 
@@ -81,8 +82,8 @@ public class Ball extends Sprite {
 
         //TODO FIRST -bug ball uncomment
 
-            Log.d("IVO", "directionX:" + directionX);
-            Log.d("IVO", "directionY:" + directionY);
+            Log.d("IVO", "balldirectionX:" + directionX);
+            Log.d("IVO", "balldirectionY:" + directionY);
 
     }
 
